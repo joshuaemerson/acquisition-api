@@ -1,4 +1,4 @@
-import logger from "#config/logger.js"
+import logger from '#config/logger.js';
 import {
   getAllUsers,
   getUserById,
@@ -9,22 +9,23 @@ import {
   userIdSchema,
   updateUserSchema,
 } from '#validations/users.validation.js';
+import { formatValidationError } from '#src/utils/format.js';
 
 export const fetchAllUsers = async (req, res, next) => {
-    try {
-        logger.info('Getting users...')
+  try {
+    logger.info('Getting users...');
 
-        const users = await getAllUsers()
-        res.json({
-            message: 'Successfully retrieved users',
-            users,
-            count: users.length
-        })
-    } catch (e) {
-        logger.error(e)
-        next(e)
-    }
-}
+    const users = await getAllUsers();
+    res.json({
+      message: 'Successfully retrieved users',
+      users,
+      count: users.length,
+    });
+  } catch (e) {
+    logger.error(e);
+    next(e);
+  }
+};
 
 export const fetchUserById = async (req, res, next) => {
   try {

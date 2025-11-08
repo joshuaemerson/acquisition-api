@@ -50,7 +50,7 @@ app.use('/api/users', usersRoutes);
 
 // Catch all for routes that do not exist -- provide some meaningful message
 app.use((req, res) => {
-  res.status(404).json({error: 'Route not found'})
-})
+  res.status(404).json({ error: 'Route not found' });
+});
 
 export default app;
